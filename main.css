@@ -79,7 +79,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: white;
 }
 .link-name:hover {
