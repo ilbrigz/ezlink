@@ -13,7 +13,16 @@ const submitBtn = document.getElementById('submit-btn');
 const addCategoryBtn = document.getElementById('add-category-btn');
 const addCategoryInput = document.getElementById('add-category-input');
 
-var colors = ['darkseagreen', 'lightsteelblue', 'darkkhaki'];
+var colors = [
+  'darkseagreen',
+  'lightsteelblue',
+  'darkkhaki',
+  '#edc2ea',
+  '#d9b991',
+  '#93bec9',
+  '#9be69a',
+  '#a7b2fa',
+];
 
 selectCategory.addEventListener('change', (e) => {
   if (e.target.value === 'addCategory') {
