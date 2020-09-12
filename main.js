@@ -242,7 +242,7 @@ function renderCategory(category) {
 }
 
 function insertLink(linkObj) {
-  const el = document.querySelector(`[data-category="${linkObj.category}]"`);
+  const el = document.querySelector(`[data-category="${linkObj.category}"]`);
   el.append(returnLink(linkObj));
 }
 
