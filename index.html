@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZLink</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/nes.css/css/nes-core.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="right-container">
+        <div class="header">
+          <h1>EZLink</h1>
+          <a href="https://www.facebook.com" target="_blank"
+            ><i class="nes-icon facebook"></i
+          ></a>
+          <a href="https://www.youtube.com" target="_blank"
+            ><i class="nes-icon youtube"></i
+          ></a>
+          <a href="https://www.github.com" target="_blank"
+            ><i class="nes-icon github"></i
+          ></a>
+        </div>
+        <div style="margin-bottom: 2rem" class="nes-container is-dark">
+          <div class="form-wrapper">
+            <form id="link-form">
+              <div class="nes-field is-inline">
+                <label for="name-input">Site Name</label>
+                <input
+                  type="text"
+                  id="name-input"
+                  class="nes-input"
+                  placeholder="Link Name..."
+                />
+              </div>
+              <div class="nes-field is-inline">
+                <label for="url-input">URL</label>
+                <input
+                  type="text"
+                  id="url-input"
+                  class="nes-input"
+                  placeholder="Valid URL..."
+                />
+
+                <div class="nes-field is-inline ml-small">
+                  <label for="select-category">Category</label>
+                  <div class="nes-select">
+                    <select id="select-category">
+                      <option value="" disabled selected hidden>
+                        Select...
+                      </option>
+                      <option value="coding">Coding</option>
+                      <option value="visitLater">Visit Later</option>
+                      <option value="goodToKnow">Good To Know</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="nes-btn is-primary send">
+                Save &gt;
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="nes-container with-title coding">
+          <h2 class="title">CODING</h2>
+
+          <div id="coding-links"></div>
+        </div>
+        <div class="nes-container with-title good-to-know">
+          <h2 class="title">Visit Later</h2>
+          <div id="later-links"></div>
+        </div>
+        <div min-height: 100px;div class="nes-container with-title visit-later">
+          <h2 class="title">Good To Know</h2>
+          <div id="good-to-know-links"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="nes-container is-dark">
+          <p id="quote"></p>
+        </div>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="nes-btn is-primary"
+      id="modal-btn"
+      onclick="document.getElementById('dialog-dark').showModal();"
+      style="visibility: hidden; position: absolute"
+    >
+      Open dark dialog
+    </button>
+    <dialog class="nes-dialog is-dark" id="dialog-dark">
+      <form method="dialog">
+        <p>Invalid Input</p>
+        <p>Fill in all the inputs with correct input</p>
+        <menu class="dialog-menu">
+          <button class="nes-btn is-primary">Confirm</button>
+        </menu>
+      </form>
+    </dialog>
+    <script src="./main.js"></script>
+  </body>
+</html>
