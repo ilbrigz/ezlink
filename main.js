@@ -1,13 +1,9 @@
-let links = [];
 let store = { categories: [], user: '', isFirstTime: true, links: [] };
 let editingIdx = -1;
 const form = document.querySelector('#link-form');
 const nameInput = document.getElementById('name-input');
 const urlInput = document.getElementById('url-input');
 const selectCategory = document.getElementById('select-category');
-const codingLinks = document.getElementById('coding-links');
-const laterLinks = document.getElementById('later-links');
-const goodToKnowLinks = document.getElementById('good-to-know-links');
 const quoteEl = document.getElementById('quote');
 const submitBtn = document.getElementById('submit-btn');
 const addCategoryBtn = document.getElementById('add-category-btn');
@@ -65,7 +61,6 @@ form.addEventListener('submit', (e) => {
     clickCount: 0,
   };
   if (editingIdx > -1) {
-    console.log(editingIdx);
     store.links[editingIdx].name = name;
     store.links[editingIdx].url = url;
     store.links[editingIdx].category = category;
@@ -86,53 +81,6 @@ form.addEventListener('submit', (e) => {
     selectCategory.value = '';
   }
 });
-
-function renderLink(link) {
-  const returnLink = (linkObj) => {
-    const div = document.createElement('div');
-    // <li class="item"> </li>
-    div.setAttribute(
-      'class',
-      'nes-container is-dark link-container is-rounded'
-    );
-    div.innerHTML = `
-        <a href="${
-          linkObj.url.indexOf('http') > -1
-            ? linkObj.url
-            : 'http://' + linkObj.url
-        }" class="link-name" target="_blank" rel="noopener noreferrer">${
-      linkObj.name
-    }</a>
-        <div class="link-action">
-          <button
-            type="button"
-            class="action-btn nes-btn is-success is-small"
-            data-id="${linkObj.id}"
-            id="link-edit"
-            onClick="editLink(this)"
-          >
-            e
-          </button>
-          <button type="button" id="link-delete" data-id="${
-            linkObj.id
-          }" class="action-btn nes-btn is-warning"
-          onclick="removeLink(this)"
-          >
-            X
-          </button>
-        </div>
-        `;
-    return div;
-  };
-
-  if (link.category === 'coding') {
-    codingLinks.append(returnLink(link));
-  } else if (link.category === 'visitLater') {
-    laterLinks.append(returnLink(link));
-  } else {
-    goodToKnowLinks.append(returnLink(link));
-  }
-}
 
 window.addEventListener('load', () => {
   updateQuote();
@@ -176,17 +124,6 @@ function editLink(el) {
   urlInput.value = store.links[editingIdx].url;
   selectCategory.value = store.links[editingIdx].category;
 }
-
-const updateQuote = async () => {
-  let response = await fetch(
-    'https://programming-quotes-api.herokuapp.com/quotes/random'
-  );
-
-  if (response.ok) {
-    const quote = await response.json();
-    quoteEl.innerHTML = '"' + quote.en + '"';
-  }
-};
 
 function updateLocalStorageStore() {
   localStorage.setItem('store', JSON.stringify(store));
@@ -293,3 +230,14 @@ function returnLink(linkObj) {
         `;
   return div;
 }
+
+const updateQuote = async () => {
+  let response = await fetch(
+    'https://programming-quotes-api.herokuapp.com/quotes/random'
+  );
+
+  if (response.ok) {
+    const quote = await response.json();
+    quoteEl.innerHTML = '"' + quote.en + '"';
+  }
+};
