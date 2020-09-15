@@ -23,6 +23,7 @@ var colors = [
 selectCategory.addEventListener('change', (e) => {
   if (e.target.value === 'addCategory') {
     showCategoryInput();
+    addCategoryInput.focus();
     return;
   } else {
     hideCategoryInput();
@@ -31,8 +32,18 @@ selectCategory.addEventListener('change', (e) => {
 
 addCategoryBtn.addEventListener('click', () => {
   const catInput = addCategoryInput.value.trim();
+
+  const dup = store.categories.find((cat) => cat.name === catInput);
+  if (!!dup) {
+    document.getElementById('err-msg').innerText =
+      'NO dumplication of Category';
+    document.getElementById('modal-btn').click();
+    return;
+  }
   if (!catInput) {
-    document.getElementById('category-modal-btn').click();
+    document.getElementById('err-msg').innerText =
+      'Category Input must be provided';
+    document.getElementById('modal-btn').click();
     return;
   }
   const newCategory = { name: catInput, id: Math.random(), links: [] };
@@ -50,6 +61,8 @@ form.addEventListener('submit', (e) => {
   const url = urlInput.value.trim();
   const category = selectCategory.value;
   if (!name || !url || !category) {
+    document.getElementById('err-msg').innerText =
+    'Please Fill in all fields';
     document.getElementById('modal-btn').click();
     return;
   }

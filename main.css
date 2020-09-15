@@ -3,10 +3,13 @@
 ::before {
   box-sizing: border-box;
 }
+
 a:hover {
   text-decoration: none;
 }
+
 body {
+  background-color: #e1f0e8;
   font-size: 0.8rem;
 }
 
@@ -32,6 +35,7 @@ body {
   margin-bottom: 2rem;
   padding: 1rem;
 }
+
 #remove-collection {
   position: absolute;
   right: -0.3rem;
@@ -46,14 +50,17 @@ body {
 #add-category-input {
   max-width: 350px !important;
 }
+
 .send {
   position: absolute;
   right: -2px;
   bottom: -25px;
 }
+
 .header {
   display: flex;
 }
+
 .header a {
   margin: 0 0.5rem;
 }
@@ -67,8 +74,6 @@ body {
   flex-direction: column;
   position: relative;
   height: 100px;
-
-  /* min-width: 250px; */
 }
 
 .link-action {
@@ -76,13 +81,16 @@ body {
   bottom: 5px;
   right: 4px;
 }
+
 .link-action button {
   padding: 3px;
   font-size: 0.7rem;
 }
+
 .link-action button:first-of-type {
   margin-right: -0.8rem;
 }
+
 .link-name {
   max-width: 400px;
   white-space: nowrap;
@@ -91,6 +99,7 @@ body {
   font-size: 1.2rem;
   color: white;
 }
+
 .link-name:hover {
   color: #7cfc00;
 }
@@ -99,10 +108,12 @@ body {
   background-color: darkseagreen;
   min-height: 50px;
 }
+
 .good-to-know {
   background-color: lightsteelblue;
   min-height: 50px;
 }
+
 .visit-later {
   background-color: darkkhaki;
   min-height: 50px;
@@ -116,15 +127,6 @@ body {
   text-align: center;
 }
 
-@media only screen and (max-width: 569px) {
-  .link-container {
-    width: 100%;
-  }
-  .ml-small {
-    margin: 0;
-  }
-}
-
 .is-editing {
   background-color: darkorange !important;
 }
@@ -133,16 +135,12 @@ body {
 .is-hidden {
   display: none !important;
 }
-@keyframes slidein {
-}
-.nes-container.is-rounded {
-  animation-duration: 3s;
-  animation-name: slidein;
-  /* animation-timing-function: linear; */
-  animation-iteration-count: infinite;
-}
-body {
-  background-color: #e1f0e8;
-}
 
-/* {"categories":[{"name":"coding","id":0.49998209475013833,"links":[]},{"name":"visit later","id":0.872423240478603,"links":[]},{"name":"good to know","id":0.3748542337247156,"links":[]}],"user":"","isFirstTime":true,"links":[{"name":"fcc","url":"www.freecodecamp.com","category":"coding","id":0.8388530058850872,"clickCount":0},{"name":"whatver site","url":"youtube.com","category":"coding","id":0.839394513783235,"clickCount":0},{"name":"third site","url":"http://www.youtube.com","category":"coding","id":0.4637433446237218,"clickCount":0},{"name":"zzzzzzz site","url":"http://www.youtube.com","category":"coding","id":0.490880950352923,"clickCount":0},{"name":"THe quick brown fox jumps over the lazy dog","url":"http://www.youtube.com","category":"coding","id":0.28247895990570915,"clickCount":0},{"name":"unsplash","url":"unsplash.com","category":"visit later","id":0.18323482343605146,"clickCount":0},{"name":"awwwards","url":"awwwards.com","category":"good to know","id":0.42942949820009724,"clickCount":0}]} */
+@media only screen and (max-width: 569px) {
+  .link-container {
+    width: 100%;
+  }
+  .ml-small {
+    margin: 0;
+  }
+}

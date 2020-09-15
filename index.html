@@ -65,7 +65,6 @@
                       <option value="" disabled selected hidden>
                         Select...
                       </option>
-
                       <option value="addCategory" style="color: orange">
                         Add Category
                       </option>
@@ -110,24 +109,6 @@
       type="button"
       class="nes-btn is-primary"
       id="modal-btn"
-      onclick="document.getElementById('dialog-dark').showModal();"
-      style="visibility: hidden; position: absolute"
-    >
-      Open dark dialog
-    </button>
-    <dialog class="nes-dialog is-dark" id="dialog-dark">
-      <form method="dialog">
-        <p>Invalid Input</p>
-        <p>Fill in all the inputs with correct input</p>
-        <menu class="dialog-menu">
-          <button class="nes-btn is-primary">Confirm</button>
-        </menu>
-      </form>
-    </dialog>
-    <button
-      type="button"
-      class="nes-btn is-primary"
-      id="category-modal-btn"
       onclick="document.getElementById('category-modal').showModal();"
       style="visibility: hidden; position: absolute"
     >
@@ -135,8 +116,8 @@
     </button>
     <dialog class="nes-dialog is-dark" id="category-modal">
       <form method="dialog">
-        <p>Category Input</p>
-        <p>Fill in the category input</p>
+        <p>Ooops...</p>
+        <p id="err-msg">Fill in the category input</p>
         <menu class="dialog-menu">
           <button class="nes-btn is-primary">Confirm</button>
         </menu>
