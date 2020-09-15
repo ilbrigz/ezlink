@@ -61,8 +61,7 @@ form.addEventListener('submit', (e) => {
   const url = urlInput.value.trim();
   const category = selectCategory.value;
   if (!name || !url || !category) {
-    document.getElementById('err-msg').innerText =
-    'Please Fill in all fields';
+    document.getElementById('err-msg').innerText = 'Please Fill in all fields';
     document.getElementById('modal-btn').click();
     return;
   }
@@ -89,9 +88,7 @@ form.addEventListener('submit', (e) => {
     insertLink(link);
   }
   if (nameInput.value || urlInput.value || selectCategory.value) {
-    nameInput.value = '';
-    urlInput.value = '';
-    selectCategory.value = '';
+    form.reset();
   }
 });
 
@@ -106,6 +103,7 @@ window.addEventListener('load', () => {
     updateCategoryOptions(cat);
     renderCategory(cat);
   });
+  form.reset();
   store.links.forEach((link) => insertLink(link));
 });
 
@@ -122,9 +120,7 @@ function editLink(el) {
   if (el.parentNode.parentNode.classList.contains('is-editing')) {
     el.parentNode.parentNode.classList.remove('is-editing');
     editingIdx = -1;
-    nameInput.value = '';
-    urlInput.value = '';
-    selectCategory.value = '';
+    form.reset();
     return;
   }
   const prevEl = document.querySelector('.is-editing');
@@ -162,6 +158,9 @@ function hideCategoryInput() {
 
 function updateCategoryOptions(catInput) {
   selectCategory.innerHTML =
+    `<option value="" disabled selected hidden>
+  Select...
+  </option>` +
     store.categories.reduce(
       (a, c) => `<option value="${c.name}">${c.name}</option>` + a,
       ``
